@@ -28,7 +28,7 @@ public class VoluntarioBean implements Serializable{
 		edit.setTelefone(telefone);
 		
 		EntityManagerFactory factory = 
-				Persistence.createEntityManagerFactory("trabalhodsw");
+				Persistence.createEntityManagerFactory("TrabalhoDSW");
 		
 		EntityManager manager = factory.createEntityManager();
 		
