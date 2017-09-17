@@ -19,7 +19,7 @@ public class VoluntarioRepository {
 		this.manager.remove(e);
 	}
 	
-	public void atualizar(Voluntario e){
+	public void atualiza(Voluntario e){
 		this.manager.merge(e);
 	}
 	

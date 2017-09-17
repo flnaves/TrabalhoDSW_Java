@@ -68,6 +68,30 @@ public class VoluntarioBean implements Serializable{
 		return null;
 	}
 
+	public String atualizarVoluntario(){
+		
+
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("TrabalhoDSW");
+		EntityManager manager = factory.createEntityManager();
+		
+		VoluntarioRepository voluntarioRepository = new VoluntarioRepository(manager);
+		
+		Voluntario edit = new Voluntario();
+		edit.setId(id);
+		edit.setNome(nome);
+		edit.setEmail(email);
+		edit.setCpf(cpf);
+		edit.setTelefone(telefone);
+		
+		Voluntario encontrado = voluntarioRepository.busca(4);
+		
+		manager.getTransaction().begin();
+		voluntarioRepository.atualiza(edit);
+		manager.getTransaction().commit();	
+		
+		return null;
+	}
+	
 	public String getNome() {
 		return nome;
 	}
