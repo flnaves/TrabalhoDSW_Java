@@ -36,7 +36,7 @@ public class ProjetoBean {
 
 	}
 
-	public List<Projeto> getListaLivros() {
+	public List<Projeto> getListaProjetos() {
 		return new Repository<Projeto>(Projeto.class).listaTodos();
 	}
 
