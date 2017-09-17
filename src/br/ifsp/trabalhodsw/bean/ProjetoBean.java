@@ -26,6 +26,14 @@ public class ProjetoBean {
 		this.projeto = projeto;
 	}
 
+	public Voluntario getVoluntario() {
+		return voluntario;
+	}
+
+	public void setVoluntario(Voluntario voluntario) {
+		this.voluntario = voluntario;
+	}
+
 	public String gravar() {
 
 		if (projeto.getNome().isEmpty()) {
