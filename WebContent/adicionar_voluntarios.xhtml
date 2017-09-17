@@ -56,27 +56,35 @@
 				<!--/.nav-collapse -->
 			</div>
 		</nav>
+
 		<div class="container formulario">
 			<div class="row">
-				<h:form id="formTabelaProjetos">
-					<h:dataTable class="table table-responsive" id="tabelaProjetos"
-						value="#{projetoBean.listaProjetos}" var="projeto">
-						<h:column>
-							<f:facet name="header">Nome</f:facet>
-							<h:outputText value="#{projeto.nome}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">Add Voluntário</f:facet>
-							<h:form>
-                    			<h:commandButton class="btn btn-success" value="+" action="#{projetoBean.adicionarVoluntario(projeto)}" />
-                    		</h:form>
-						</h:column>
+				<h:form>
+					<h:messages id="messages" />
+					<p class="h3">Adicionar Voluntarios</p>
 
-					</h:dataTable>
+
+					<div class="form-group">
+						<h:outputText class="form-control-label" value="Projeto: #{projetoBean.projeto.nome} " />
+						<h:inputText class="form-control"
+							value="#{projetoBean.projeto.nome}" />
+					</div>
+
+					<div class="form-group">
+						<h:inputText class="form-control"
+							value="#{projetoBean.projeto.nome}" />
+					</div>
+										
+					<h:commandButton class="btn btn-success" value="Pesquisar"
+						action="#{projetoBean.gravar}" />
 				</h:form>
 			</div>
 		</div>
 	</f:view>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
 </body>
 	</html>
 </jsp:root>
