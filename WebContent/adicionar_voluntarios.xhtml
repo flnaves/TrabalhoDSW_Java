@@ -71,30 +71,30 @@
 
 					<div class="form-group">
 						<h:inputText class="form-control"
-							value="#{projetoBean.voluntario.cpf}" />
+							value="#{projetoBean.cpf}" />
 					</div>
 
 					<h:commandButton class="btn btn-default" value="Pesquisar"
 						action="#{projetoBean.pesquisaeVoluntario}">
-						<f:ajax execute="@form"
-							render="@all" />
+						<f:ajax execute="@form" render="@form :formTabelaVoluntarios:tabelaVoluntarios" />
 					</h:commandButton>
 				</h:form>
 				
-				<h:dataTable class="table table-responsive" id="tabelaProjetos"
-						value="#{projetoBean.listaProjetos}" var="projeto">
-						<h:column>
-							<f:facet name="header">Nome</f:facet>
-							<h:outputText value="#{projetoBean.voluntario.nome}" />
-						</h:column>
-						<h:column>
-							<f:facet name="header">Add Voluntário</f:facet>
+				<h:form id="formTabelaVoluntarios">
+			<h:dataTable id="tabelaVoluntarios" value="#{projetoBean.voluntarios}" var="voluntario">
+				<h:column>
+					<f:facet name="header">Nome</f:facet>
+					<h:outputText value="#{voluntario.nome}" />
+				</h:column>
+					<h:column>
+						<f:facet name="header">Add Voluntário</f:facet>
 							<h:form>
-                    			<h:commandButton class="btn btn-success" value="+" action="#{projetoBean.gravarVoluntario(projetoBean.voluntario)}" />
+                    			<h:commandButton class="btn btn-success"
+									value="+" action="#{projetoBean.gravarVoluntario(voluntario)}" />
                     		</h:form>
-						</h:column>
-
+					</h:column>
 				</h:dataTable>
+		</h:form>
 			</div>
 		</div>
 	</f:view>

@@ -1,5 +1,6 @@
 package br.ifsp.trabalhodsw.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -16,7 +17,18 @@ import br.ifsp.trabalhodsw.repository.Repository;
 public class ProjetoBean {
 
 	private Projeto projeto = new Projeto();
-	private Voluntario voluntario = new Voluntario();
+	private List<Voluntario> voluntarios = new ArrayList<Voluntario>();
+	private String cpf;
+	
+	
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
 
 	public Projeto getProjeto() {
 		return projeto;
@@ -25,13 +37,13 @@ public class ProjetoBean {
 	public void setProjeto(Projeto projeto) {
 		this.projeto = projeto;
 	}
-
-	public Voluntario getVoluntario() {
-		return voluntario;
+	
+	public List<Voluntario> getVoluntarios() {
+		return voluntarios;
 	}
 
-	public void setVoluntario(Voluntario voluntario) {
-		this.voluntario = voluntario;
+	public void setVoluntarios(List<Voluntario> voluntarios) {
+		this.voluntarios = voluntarios;
 	}
 
 	public String gravar() {
@@ -68,7 +80,8 @@ public class ProjetoBean {
 	}
 	
 	public void pesquisaeVoluntario() {
-		voluntario = (Voluntario) new Repository<Voluntario>(Voluntario.class).buscaPorCpf(voluntario.getCpf());
+		voluntarios = new ArrayList<>();
+		voluntarios.add( (Voluntario) new Repository<Voluntario>(Voluntario.class).buscaPorCpf(cpf));
 	}
 	
 }
