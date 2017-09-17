@@ -3,6 +3,7 @@ package br.ifsp.trabalhodsw.repository;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
 public class Repository<T> {
@@ -67,6 +68,14 @@ public class Repository<T> {
 		T instancia = em.find(classe, id);
 		em.close();
 		return instancia;
+	}
+	
+	public Object buscaPorCpf(String cpf) {
+		EntityManager em = new JPAUtil().getEntityManager();
+		Query query = em.createQuery("select v FROM Voluntario v WHERE v.cpf = :cpf").setParameter("cpf", cpf);
+		Object object = query.getResultList().get(0);
+		em.close();
+		return object;
 	}
 
 	public int contaTodos() {

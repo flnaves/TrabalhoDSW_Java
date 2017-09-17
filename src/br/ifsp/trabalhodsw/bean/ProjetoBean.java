@@ -37,7 +37,7 @@ public class ProjetoBean {
 	public String gravar() {
 
 		if (projeto.getNome().isEmpty()) {
-			FacesContext.getCurrentInstance().addMessage("nome", new FacesMessage("Projeto deve conter um nome"));
+			FacesContext.getCurrentInstance().addMessage("messages", new FacesMessage("Projeto deve conter um nome"));
 			return "cadastro_projeto";
 		}
 
@@ -61,9 +61,14 @@ public class ProjetoBean {
 		return "adicionar_voluntarios";
 	}
 	
-	public void gravarVoluntario() {
+	public void gravarVoluntario(Voluntario voluntario) {
 		projeto.getVoluntarios().add(voluntario);
 		new Repository<Projeto>(Projeto.class).atualiza(projeto);
+		FacesContext.getCurrentInstance().addMessage("messages", new FacesMessage("Adicionado com sucesso!!"));
 	}
-
+	
+	public void pesquisaeVoluntario() {
+		voluntario = (Voluntario) new Repository<Voluntario>(Voluntario.class).buscaPorCpf(voluntario.getCpf());
+	}
+	
 }

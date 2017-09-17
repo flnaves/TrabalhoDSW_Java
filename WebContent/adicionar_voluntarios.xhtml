@@ -12,6 +12,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> ]]>
 	</jsp:text>
 	<html xmlns="http://www.w3.org/1999/xhtml">
+	<h:head>
 <meta charset="utf-8"></meta>
 <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
@@ -21,10 +22,9 @@
 	href="https://fonts.googleapis.com/css?family=Karla|Pacifico|Raleway"
 	rel="stylesheet"></link>
 <link href="resources/css/estilo.css" rel="stylesheet"></link>
-<head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <title>CadastrarLivro</title>
-</head>
+</h:head>
 <body>
 	<f:view>
 
@@ -71,29 +71,30 @@
 
 					<div class="form-group">
 						<h:inputText class="form-control"
-							value="#{projetoBean.voluntario.nome}" />
+							value="#{projetoBean.voluntario.cpf}" />
 					</div>
 
 					<h:commandButton class="btn btn-default" value="Pesquisar"
-						action="#{projetoBean.gravarVoluntario}">
+						action="#{projetoBean.pesquisaeVoluntario}">
 						<f:ajax execute="@form"
-							render="@form :formTabelaVoluntarios:tabelaVoluntarios" />
+							render="@all" />
 					</h:commandButton>
 				</h:form>
-
-				<h:form id="formTabelaVoluntarios">
-					<h:dataTable id="tabelaVoluntarios"
-						value="#{projetoBean.projeto.voluntarios}" var="voluntario">
+				
+				<h:dataTable class="table table-responsive" id="tabelaProjetos"
+						value="#{projetoBean.listaProjetos}" var="projeto">
 						<h:column>
 							<f:facet name="header">Nome</f:facet>
-							<h:outputText value="#{voluntario.nome}" />
+							<h:outputText value="#{projetoBean.voluntario.nome}" />
 						</h:column>
 						<h:column>
-							<f:facet name="header">Cpf</f:facet>
-							<h:outputText value="#{voluntario.cpf}" />
+							<f:facet name="header">Add Voluntário</f:facet>
+							<h:form>
+                    			<h:commandButton class="btn btn-success" value="+" action="#{projetoBean.gravarVoluntario(projetoBean.voluntario)}" />
+                    		</h:form>
 						</h:column>
-					</h:dataTable>
-				</h:form>
+
+				</h:dataTable>
 			</div>
 		</div>
 	</f:view>
