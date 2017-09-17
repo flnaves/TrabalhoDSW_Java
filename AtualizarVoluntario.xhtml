@@ -63,8 +63,10 @@
  	
  	<div class="container formulario">
 		<div class="row">
+			<p class="h3">Voluntários Cadastrados:</p>
+			
 			<h:form>
-				<h:dataTable id="tabelaVoluntarios" value="#{voluntarioBean.listaVoluntarios}" var="voluntario">
+				<h:dataTable class="table" id="tabelaVoluntarios" value="#{voluntarioBean.listaVoluntarios}" var="voluntario">
 					<h:column>
 						<f:facet name="header">ID</f:facet>
 						<h:outputText value="#{voluntario.id}" />
@@ -92,18 +94,34 @@
 	  			<Br /><Br /><Br /><Br />
 	  
 	  
-			  	<h:outputLabel value="Atualizar Voluntario" style="font-weight:bold"/><Br /><Br />
-			  	<h:outputLabel value="ID: "/>
-			  	<h:inputText value="#{voluntarioBean.id}" /><Br />
-				<h:outputLabel value="Nome: "/>
-			  	<h:inputText value="#{voluntarioBean.nome}" /><Br />
-			  	<h:outputLabel value="Cpf: "/>
-			  	<h:inputText value="#{voluntarioBean.cpf}" /><Br />
-			  	<h:outputLabel value="E-mail: "/>
-			  	<h:inputText value="#{voluntarioBean.email}" /><Br />
-			  	<h:outputLabel value="Telefone: "/>
-			  	<h:inputText value="#{voluntarioBean.telefone}" /><Br /><Br />
-			  	<h:commandButton value ="Salvar" action="#{voluntarioBean.atualizarVoluntario}"/>
+			  	<p class="h3">Atualizar Voluntário</p><br/>
+			  	
+			  	<div class="form-group">
+				  	<h:outputLabel class="form-control-label" value="ID: "/>
+				  	<h:inputText class="form-control" value="#{voluntarioBean.id}" />
+			  	</div>
+			  	
+			  	<div class="form-group">
+					<h:outputLabel class="form-control-label" value="Nome: "/>
+				  	<h:inputText class="form-control" value="#{voluntarioBean.nome}" />
+			  	</div>
+			  	
+			  	<div class="form-group">
+				  	<h:outputLabel class="form-control-label" value="Cpf: "/>
+				  	<h:inputText class="form-control" value="#{voluntarioBean.cpf}" />
+			  	</div>
+			  	
+			  	<div class="form-group">
+				  	<h:outputLabel class="form-control-label" value="E-mail: "/>
+				  	<h:inputText class="form-control" value="#{voluntarioBean.email}" />
+			  	</div>
+			  	
+			  	<div class="form-group">
+			  		<h:outputLabel class="form-control-label" value="Telefone: "/>
+			  		<h:inputText class="form-control" value="#{voluntarioBean.telefone}" />
+			  	</div>
+			  	
+			  	<h:commandButton class="btn btn-success"  value ="Salvar" action="#{voluntarioBean.atualizarVoluntario}"/>
 		
 		
 		
@@ -112,7 +130,6 @@
 			</h:form>
 		
 		</div>
-		
 	</div>
 			
 	 	
