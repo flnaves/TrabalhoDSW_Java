@@ -1,5 +1,6 @@
 package br.ifsp.trabalhodsw.entities;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -47,6 +48,9 @@ public class Projeto {
 		this.dataTermino = dataTermino;
 	}
 	public List<Voluntario> getVoluntarios() {
+		if(voluntarios == null) {
+			return new ArrayList<Voluntario>();
+		}
 		return voluntarios;
 	}
 	public void setVoluntarios(List<Voluntario> voluntarios) {

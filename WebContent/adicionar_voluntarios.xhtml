@@ -65,18 +65,34 @@
 
 
 					<div class="form-group">
-						<h:outputText class="form-control-label" value="Projeto: #{projetoBean.projeto.nome} " />
-						<h:inputText class="form-control"
-							value="#{projetoBean.projeto.nome}" />
+						<h:outputText class="form-control-label"
+							value="Projeto: #{projetoBean.projeto.nome} " />
 					</div>
 
 					<div class="form-group">
 						<h:inputText class="form-control"
-							value="#{projetoBean.projeto.nome}" />
+							value="#{projetoBean.voluntario.nome}" />
 					</div>
-										
-					<h:commandButton class="btn btn-success" value="Pesquisar"
-						action="#{projetoBean.gravar}" />
+
+					<h:commandButton class="btn btn-default" value="Pesquisar"
+						action="#{projetoBean.gravarVoluntario}">
+						<f:ajax execute="@form"
+							render="@form :formTabelaVoluntarios:tabelaVoluntarios" />
+					</h:commandButton>
+				</h:form>
+
+				<h:form id="formTabelaVoluntarios">
+					<h:dataTable id="tabelaVoluntarios"
+						value="#{projetoBean.projeto.voluntarios}" var="voluntario">
+						<h:column>
+							<f:facet name="header">Nome</f:facet>
+							<h:outputText value="#{voluntario.nome}" />
+						</h:column>
+						<h:column>
+							<f:facet name="header">Cpf</f:facet>
+							<h:outputText value="#{voluntario.cpf}" />
+						</h:column>
+					</h:dataTable>
 				</h:form>
 			</div>
 		</div>

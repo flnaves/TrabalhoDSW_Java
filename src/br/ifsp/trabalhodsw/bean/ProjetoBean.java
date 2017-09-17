@@ -8,6 +8,7 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import br.ifsp.trabalhodsw.entities.Projeto;
+import br.ifsp.trabalhodsw.entities.Voluntario;
 import br.ifsp.trabalhodsw.repository.Repository;
 
 @ManagedBean
@@ -15,6 +16,7 @@ import br.ifsp.trabalhodsw.repository.Repository;
 public class ProjetoBean {
 
 	private Projeto projeto = new Projeto();
+	private Voluntario voluntario = new Voluntario();
 
 	public Projeto getProjeto() {
 		return projeto;
@@ -49,6 +51,11 @@ public class ProjetoBean {
 	public String adicionarVoluntario(Projeto projeto) {
 		this.projeto = projeto;
 		return "adicionar_voluntarios";
+	}
+	
+	public void gravarVoluntario() {
+		projeto.getVoluntarios().add(voluntario);
+		new Repository<Projeto>(Projeto.class).atualiza(projeto);
 	}
 
 }
