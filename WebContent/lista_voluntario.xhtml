@@ -27,7 +27,7 @@
 </head>
 <body>
 	<f:view>
-
+	
 		<!-- inicio cabecalho -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
@@ -70,42 +70,40 @@
 			</div>
 		</nav>
 		<!-- fim cabecalho -->
-
-		<div class="container formulario">
-			<div class="row">
-				<h:form>
-				<p class="h3">Excluir Voluntário</p><br/>
-				  	<div class="form-group">
-				  		<h:outputLabel class="form-control-label" value="Id: "/>
-  						<h:inputText class="form-control" value="#{voluntarioBean.id}" />
-					</div>
-					<h:commandButton class="btn btn-danger" value ="Remover" action="#{voluntarioBean.removerVoluntario}"/> <Br /><Br />
-				  	
-				  	
-				  	<h:dataTable class="table" id="tabelaVoluntarios" value="#{voluntarioBean.listaVoluntarios}" var="voluntario">
-						<h:column>
-							<f:facet name="header">ID</f:facet>
-							<h:outputText value="#{voluntario.id}" />
-						</h:column>
-						
-						<h:column>
-							<f:facet name="header">Nome</f:facet>
-							<h:outputText value="#{voluntario.nome}" />
-						</h:column>
-						
-						<h:column>
-							<f:facet name="header">CPF</f:facet>
-							<h:outputText value="#{voluntario.cpf}" />
-						</h:column>
-						
-						<h:column>
-							<f:facet name="header">E-mail</f:facet>
-							<h:outputText value="#{voluntario.email}" />
-						</h:column>		
-					</h:dataTable>
-				</h:form>
+	 
+			<div class="container formulario">
+				<div class="row">
+					<h:form>
+						<p class="h3">Lista de Voluntários</p><br/>
+					  	
+					  	<h:dataTable class="table" id="tabelaVoluntarios" value="#{voluntarioBean.listaVoluntarios}" var="voluntario">
+							<h:column>
+								<f:facet name="header">ID</f:facet>
+								<h:outputText value="#{voluntario.id}" />
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header">Nome</f:facet>
+								<h:outputText value="#{voluntario.nome}" />
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header">CPF</f:facet>
+								<h:outputText value="#{voluntario.cpf}" />
+							</h:column>
+							
+							<h:column>
+								<f:facet name="header">E-mail</f:facet>
+								<h:outputText value="#{voluntario.email}" />
+							</h:column>		
+						</h:dataTable>
+					  	
+					  	
+					  	
+				  	</h:form>
+				</div>
 			</div>
-		</div>
+		
 	</f:view>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

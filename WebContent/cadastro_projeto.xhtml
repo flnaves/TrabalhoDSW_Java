@@ -27,7 +27,7 @@
 </head>
 <body>
 	<f:view>
-
+		<!-- inicio cabecalho -->
 		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container">
 				<div class="navbar-header">
@@ -38,7 +38,7 @@
 							class="icon-bar"></span> <span class="icon-bar"></span> <span
 							class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="voluntarios.html"><span
+					<a class="navbar-brand" href="cadastro_voluntario.xhtml"><span
 						class="glyphicon glyphicon-education"></span>Projeto</a>
 				</div>
 				<div id="navbar" class="collapse navbar-collapse">
@@ -46,17 +46,30 @@
 						<li class="dropdown"><a class="dropdown-toggle"
 							data-toggle="dropdown" href="#">Cadastrar <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="voluntarios.html">Voluntários</a></li>
-								<li><a href="projetos.html">Projetos</a></li>
+								<li><a href="cadastro_voluntario.xhtml">Voluntários</a></li>
+								<li><a href="cadastro_projeto.xhtml">Projetos</a></li>
 							</ul></li>
-						<li><a href="pesquisar.html">Pesquisar <span
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Editar <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="atualiza_voluntario.xhtml">Voluntários</a></li>
+								<li><a href="atualiza_projeto.xhtml">Projetos</a></li>
+							</ul></li>	
+						<li class="dropdown"><a class="dropdown-toggle"
+							data-toggle="dropdown" href="#">Remover <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="remove_voluntario.xhtml">Voluntários</a></li>
+								<li><a href="remove_projeto.xhtml">Projetos</a></li>
+							</ul></li>	
+						<li><a href="pesquisar.xhtml">Pesquisar <span
 								class="glyphicon glyphicon-search"></span></a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
 			</div>
 		</nav>
-
+		<!-- fim cabecalho -->
+		
 		<div class="container formulario">
 			<div class="row">
 				<h:form>
